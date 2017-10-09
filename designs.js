@@ -1,54 +1,34 @@
-
-let color= $('color').val();
-//console.log(width+' '+height+' '+color);
-const table= $('#pixel_canvas');
-
+let color= $('.color').val();
 
 // Select color input
 // Select size input
 
 // When size is submitted by the user, call makeGrid()
 
-$('#sub').on('click',makeGrid());
-
+$('#sub').on('click', makeGrid());
 
 function makeGrid() {
-  table.innerHTML='';
+  let height=$('#input_height').val();
+  let width = $('#input_width').val();
+  console.log(width+' '+height+' '+color);
+  const table= $('#pixel_canvas');
+  const cells = document.createElement("td");
 
-  const height=$('#input_height').val();
-  const width = $('#input_width').val();
-
+   const rows = document.createElement("tr");
   for(let x=1; x<=height; x++){
-    const rows = $('<tr></tr>');
-    table.append(rows);
+
     console.log(x);
-  let y=0;
-  while (y < width){
+  let y=0
+  while (y<width){
     //  row.insertAfter(cell);
-      const cells = $('<td></td>');
       rows.append(cells);
       console.log(y);
-      y++;
+      y++
     }
     //table.insertAfter(row);
-
-    linkCells();
+    table.append(rows);
   }
-}
 
-function linkCells(){
-  for (let i=0; i < table.rows.length ; i++){
-    for( let j=0; j < rows[i].cells.length ; j++){
-      table.rows[i].cells[j].onClick = function(){
-        changeColor(this);
-      };
-    }
-  };
-    $('color').click(function changeColor(x){
-      cell.css('background-color',color);
-    });
-}
+// Your code goes here!
 
-const validateForm = () => {
-  return false;
-};
+}
