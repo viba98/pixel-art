@@ -1,22 +1,22 @@
 $('#sub').on('click', function makeGrid(){
 
-    while($('tr')>0){
-      $('#pixel_canvas tr').empty();
-    }
 
-    let w=$('#input_width').val();
-    let h=$('#input_height').val();
-    console.log(w+' '+h)
-    for(let x=0; x<h; x++)
+    $('#pixel_canvas').empty();
+
+
+    let width =$('#input_width').val();
+    let height =$('#input_height').val();
+    //console.log(w+' '+h)
+    for(let x=0; x<height; x++)
     {
       $('table').append('<tr></tr>');
-      for ( let y=0; y<w; y++)
+      for ( let y=0; y<width ; y++)
       {
-        $('tr').append('<td></td>');
-        console.log(y);
+        $('tr').last().append('<td></td>');
+        //console.log(y);
       }
 
-      console.log(x);
+      //console.log(x);
     }
 
 
